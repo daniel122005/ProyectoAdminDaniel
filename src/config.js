@@ -1,12 +1,13 @@
-const { config } = require('dotenv')
-config()
+import 'dotenv/config';
 
-module.exports = {
-    db: {
-        user: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        host: process.env.DB_HOST,
-        port: process.env.DB_PORT,
-        database: process.env.DB_DATABASE,
-    }
-}
+export const config = {
+  port: process.env.PORT || 4000,
+  db: {
+    host: process.env.PGHOST,
+    port: Number(process.env.PGPORT || 5432),
+    database: process.env.PGDATABASE,
+    user: process.env.PGUSER,
+    password: process.env.PGPASSWORD,
+    ssl: false,
+  },
+};
